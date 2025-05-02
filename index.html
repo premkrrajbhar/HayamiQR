@@ -2,34 +2,480 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HayamiQR</title>
 
-    <title>GenQR</title>
+  <!-- Favicon link-->
+  <link rel="shortcut icon" href="assets/favicon/hayamiqr-favicon.png" type="image/x-icon">
 
-    <meta name="description" content="GenQR is a fast, user-friendly tool to generate and download QR codes instantly. Try it now and create QR codes with ease!">
-    <meta name="keywords" content="QR code generator, free QR code, create QR code, download QR code, online QR code maker, GenQR">
-    <meta name="robots" content="index, follow">
+  <!-- Meta link -->
+  <meta name="description" content="Generate and download your custom QR codes instantly with HayamiQR. Built for speed, simplicity, and efficiency — no sign-up required.">
+  <meta name="keywords" content="QR code generator, HayamiQR, free QR code, fast QR generator, generate QR code online, QR code maker, download QR code, instant QR, QR tool">
+  <meta name="robots" content="index, follow">
 
-    <link rel="shortcut icon" href="assets/favicon/genqr-favicon.png" type="image/x-icon">
+  <!-- AOS CDN CSS link -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Bootstrap CDN CSS link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <!-- Font Awesome CDN CSS link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom CSS link -->
+  <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
-    <div class="container">
-        <h1>GenQR</h1>
-        <p>GenQR is a fast tool that lets you to generate and download QR code instantly, Give it a try today!</p>
 
-        <input type="text" id="qrText" placeholder="Type text or URL to generate QR Code">
-        <div id="qrShow"></div>
+  <!-- Header Section -->
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#home">
+          <div class="d-flex justify-content-center text-dark fw-bold align-items-center">
+            <img src="assets/logo/qr-code.png" alt="qr-code-logo" height="30" class="d-inline-block align-text-center">
+            HayamiQR
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto text-center mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-dark" aria-current="page" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#quickguide">Quick Guide</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#generateqr">Generate QR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#faq">FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-        <button href="" id="qrGenerateBtn">Generate QR Code</button>
-        <a href="" id="qrDownloadBtn" download="QR_Code.png">Download QR Code</a>
-        <button type="reset" id="resetBtn">Clear</button>
+
+  <!-- Home Section -->
+  <section id="home" class="text-center py-5 min-vh-100 d-flex align-content-center align-items-center text-dark">
+    <div class="container pt-5">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-sm-12 col-md-5">
+          <h1 class="display-5 fw-bolder mt-5 mb-4" data-aos="fade-right" data-aos-duration="1000">HayamiQR</h1>
+          <p class="fs-3 lh-lg" data-aos="fade-right" data-aos-duration="1000"><strong>HayamiQR</strong> lets you
+            generate and download QR codes in seconds — no clutter, no delay. Inspired by the Japanese word Hayami,
+            meaning 'quick view,' our tool is designed for speed, simplicity, and instant access.
+          </p>
+          <a href="#generateqr" class="btn btn-primary fs-5 p-2 mt-4 d-none d-md-inline-block text-white"
+            data-aos="fade-right" data-aos-duration="1000">Generate Now!</a>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-7" data-aos="zoom-in" data-aos-duration="1300">
+          <img src="assets/images/home-section/image.png" class="img-fluid" alt="hayamiqr-logo">
+          <a href="#generateqr" class="btn btn-primary fs-5 p-2 d-md-none d-md-inline-block text-white"
+            data-aos="fade-left" data-aos-duration="1000">Generate Now!</a>
+        </div>
+      </div>
     </div>
-    <script src="script/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  </section>
+
+  <!-- Feature Section -->
+  <section id="features" class="py-5 text-center text-dark min-vh-100  d-flex align-content-center align-items-center">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-7 order-last order-lg-first">
+          <img src="assets/images/feature-section/img.png" class="img-fluid" alt="feature-section-image" data-aos="zoom-in" data-aos-duration="1000">
+        </div>
+        <div class="col-lg-5">
+          <h1 class="display-5 fw-bolder text-lg-end" data-aos="fade-left" data-aos-duration="1000">Stay Ahead with HayamiQR</h1>
+          <p class="fs-5 mb-3 text-lg-end" data-aos="fade-right" data-aos-duration="1000">HayamiQR makes it effortless to create QR codes for your links and text in
+            seconds.
+            Whether you're sharing a website, contact info, or a custom message, simply enter your content and download
+            your unique QR code instantly.</p>
+          <div class="row justify-content-center align-items-center">
+            <div class="col-lg-8 mb-3 w-75">
+              <div class="card  border-0" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="card-body">
+                  <h5 class="card-title fs-1 text-primary p-3 my-2"><i class="fa-solid fa-qrcode"></i></h5>
+                  <h6 class="card-subtitle mb-2 text-dark fw-semibold">Instant QR Code Generation</h6>
+                  <p class="card-text text-dark">Create QR codes for links and text in seconds. No
+                    sign-up, no hassle — just enter your content and generate
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 mb-3 w-75">
+              <div class="card border-0" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="card-body">
+                  <h5 class="card-title fs-1 p-3 my-2 text-primary"><i class="fa-solid fa-download"></i></h5>
+                  <h6 class="card-subtitle mb-2 text-dark fw-semibold">Easy Download</h6>
+                  <p class="card-text text-dark">Once your QR code is ready, download it instantly and
+                    use it anywhere, anytime. Fast and convenient access at your fingertips.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Quick Guide Section -->
+  <section id="quickguide" class="py-5 text-dark min-vh-100  d-flex align-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bolder" data-aos="fade-right" data-aos-duration="1000">How to Generate QR Code with HayamiQR</h1>
+          <p class="fs-5 mb-3" data-aos="fade-left" data-aos-duration="1000">Creating a QR code with HayamiQR is quick and effortless. Just enter your text or link,
+            click generate, and download your custom QR code — all in a matter of seconds. Follow the simple steps below
+            to get started.</p>
+          <p class="fs-2 fw-bold mb-0" data-aos="fade-right" data-aos-duration="1000">01 Enter Your Text or Link</p>
+          <p class="ms-5 mt-0 pt-0" data-aos="fade-right" data-aos-duration="1000">Start by typing the content you want to convert into a QR code. This can be a
+            website URL or any plain text. Make sure it’s accurate — what you enter here is what your QR code will
+            store.</p>
+
+          <p class="fs-2 fw-bold mb-0" data-aos="fade-left" data-aos-duration="1000">02 Click the "Generate" Button</p>
+          <p class="ms-5 mt-0 pt-0" data-aos="fade-left" data-aos-duration="1000">Once you've entered your content, click the Generate button. HayamiQR will
+            instantly create a scannable QR code based on your input — no waiting, no loading screens.</p>
+
+          <p class="fs-2 fw-bold mb-0" data-aos="fade-right" data-aos-duration="1000">03 Download Your QR Code</p>
+          <p class="ms-5 mt-0 pt-0" data-aos="fade-right" data-aos-duration="1000">After the QR code appears, click the Download button to save it as an image. You can
+            now use it in documents, on websites, print materials, or wherever you need.</p>
+
+          <p class="fs-2 fw-bold mb-0" data-aos="fade-left" data-aos-duration="1000">04 Clear the Input</p>
+          <p class="ms-5 mt-0 pt-0" data-aos="fade-left" data-aos-duration="1000">If you want to create another QR code or start over, click the Clear button. This
+            will reset the input field and remove the previous QR code from view.</p>
+
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+          <img src="assets/images/generate-guide-section/image.png" class="img-fluid" alt="about-section-image" data-aos="zoom-in" data-aos-duration="1000">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Generate QR Code Section -->
+  <section id="generateqr" class="py-5 text-center text-dark  d-flex align-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="display-5 fw-bolder" data-aos="zoom-out" data-aos-duration="1000">Start Generating with Hayami Speed</h1>
+          <p class="fs-5 mb-3" data-aos="zoom-out" data-aos-duration="1000">Now that you’ve learned how to use HayamiQR, it’s time to create your own! Just enter
+            your text or link below, click generate, and download your custom QR code in seconds — the Hayami way: fast
+            and effortless</p>
+
+          <div class="mb-3 d-flex justify-content-center align-content-center" >
+            <input type="text" id="qrText" class="form-control text-center w-75"
+              placeholder="Please enter text or url to generate QR Code" data-aos="zoom-out" data-aos-duration="1000">
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center">
+            <div id="qrShow" class="my-4 text-center text-danger fw-bold"></div>
+          </div>
+
+          <div class="d-flex justify-content-center align-items-center pb-5 mb-5">
+            <button id="qrGenerateBtn" type="button" class="btn btn-primary m-1 text-white" data-aos="zoom-out" data-aos-duration="1000">Generate</button>
+            <a id="qrDownloadBtn" class="btn btn-primary m-1" download="QR_Code.png" data-aos="zoom-out" data-aos-duration="1000">Download</a>
+            <button id="resetBtn" type="reset" class="btn btn-primary m-1 text-white" data-aos="zoom-out" data-aos-duration="1000">Clear</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section id="testimonials" class="py-5 text-dark min-vh-100  d-flex align-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <h1 class="display-5 fw-bolder" data-aos="fade-right" data-aos-duration="1000">Trusted by Our Users</h1>
+          <p class="fs-5 mb-3" data-aos="fade-left" data-aos-duration="1000">We built HayamiQR to make life easier — and our users agree. Discover how real people use
+            HayamiQR to create and download QR codes in seconds.</p>
+
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-aos="fade-right" data-aos-duration="1000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="card mx-auto text-center border-0">
+                  <div class="card-body  text-dark">
+                    <img src="assets/images/users/user-1.jpg" alt="User photo - 1" class="rounded-circle mb-3"
+                      width="60" height="60">
+                    <p class="card-text opacity-75"><em>"HayamiQR is incredibly fast and easy to use. I created a QR
+                        code for my website in under 10 seconds — no login, no fuss!"</em>
+                    </p>
+                    <h6 class="card-subtitle mb-2 opacity-75">Mina Takahashi</h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="card mx-auto text-center border-0">
+                  <div class="card-body text-dark">
+                    <img src="assets/images/users/user-2.jpg" alt="User Photo -2" class="rounded-circle mb-3" width="60"
+                      height="60">
+                    <p class="card-text opacity-75"><em>"Clean interface, instant results. I use HayamiQR for event
+                        flyers and it’s never let me down. Super reliable!"</em>
+                    </p>
+                    <h6 class="card-subtitle mb-2 opacity-75">Alex Rivera</h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="card mx-auto text-center border-0">
+                  <div class="card-body text-dark">
+                    <img src="assets/images/users/user-3.jpg" alt="User Photo -3" class="rounded-circle mb-3" width="60"
+                      height="60">
+                    <p class="card-text opacity-75"><em>"I love how smooth and intuitive HayamiQR feels. Just type,
+                        click, and download. Perfect for daily business use."</em>
+                    </p>
+                    <h6 class="card-subtitle mb-2 opacity-75">Hiroshi Yamada</h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="card mx-auto text-center border-0">
+                  <div class="card-body text-dark">
+                    <img src="assets/images/users/user-4.jpg" alt="User Photo - 4" class="rounded-circle mb-3"
+                      width="60" height="60">
+                    <p class="card-text opacity-75"><em>"Most QR tools are either slow or filled with ads. HayamiQR
+                        keeps it simple and fast — exactly what I need."</em>
+                    </p>
+                    <h6 class="card-subtitle mb-2 opacity-75">David Chen</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 d-flex justify-content-center align-items-center">
+          <img src="assets/images/testimonial-section/image.png" class="img-fluid" alt="testimonial-section-image" data-aos="zoom-in" data-aos-duration="1000">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Us Section -->
+  <section id="about" class="py-5 text-center text-dark min-vh-100  d-flex align-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex justify-content-center align-items-center order-last order-lg-first">
+          <img src="assets/images/about-section/image.png" class="img-fluid" alt="about-section-image" data-aos="zoom-in" data-aos-duration="1000">
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bolder text-lg-end" data-aos="fade-left" data-aos-duration="1000">The Story Behind HayamiQR</h1>
+          <p class="fs-5 mb-3 text-lg-end" data-aos="fade-right" data-aos-duration="1000">HayamiQR was created with one clear goal — to make QR code generation fast,
+            simple, and accessible for everyone. The name "Hayami" is a Japanese word that means "quick view" or "fast
+            glance," which perfectly reflects our core mission: instant QR codes without the clutter.</p>
+          <p class="fs-5 mb-3 text-lg-end" data-aos="fade-left" data-aos-duration="1000">Whether you're sharing a link, a short message, or event info, HayamiQR lets
+            you do it in seconds — no sign-ups, no distractions, just pure speed. From the clean interface to the smooth
+            download process, everything is designed to save time and make sharing as efficient as possible.</p>
+          <p class="fs-5 mb-3 text-lg-end" data-aos="fade-right" data-aos-duration="1000">HayamiQR isn’t just a tool — it’s a philosophy: simple, fast, and focused.
+            That’s why we chose the name “Hayami” — because in a world full of delays, we believe in getting things
+            done, quickly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-5 text-dark min-vh-100  d-flex align-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+          <img src="assets/images/faq-section/image.png" class="img-fluid" alt="faq-section-image" data-aos="zoom-in" data-aos-duration="1000">
+        </div>
+        <div class="col-lg-7 order-first">
+          <h1 class="display-5 fw-bolder text-lg-end" data-aos="fade-right" data-aos-duration="1000">Need Help? We’ve Got Answers</h1>
+          <p class="fs-5 mb-3 text-lg-end" data-aos="fade-left" data-aos-duration="1000">Need clarity? We’ve answered the most common questions to make your HayamiQR
+            experience smooth, fast, and frustration-free. Check below to find what you’re looking for.</p>
+          <div class="accordion" id="accordionExample">
+
+            <div class="accordion-item text-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  What is a QR code?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body text-start">
+                  A QR (Quick Response) code is a type of barcode that stores information like text or links. When
+                  scanned with a phone or QR reader, it quickly displays or redirects to the stored data.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item text-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  What kind of content can I turn into a QR code with HayamiQR?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body text-start">
+                  You can generate QR codes for plain text or links (URLs). Just enter the content in the input field
+                  and generate your code instantly.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item text-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  How do I download the QR code after generating it?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body text-start">
+                  After generating your QR code, simply click the Download button to save it as an image format.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item text-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  What happens when I click the "Clear" button?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body text-start">
+                  Clicking the Clear button resets the input field and removes the generated QR code, so you can start
+                  fresh.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item text-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  Does the QR code generated by HayamiQR expire?
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body text-start">
+                  They are static QR codes, which means once you generate and download them, they will continue to work
+                  indefinitely — as long as the content (like a URL or text) they point to remains valid. There's no
+                  time limit, subscription, or external server dependency involved.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item text-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  Is my data stored or tracked?
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body text-start">
+                  No. HayamiQR doesn’t store or track any data you enter. Your input is used only to generate the QR
+                  code in real time.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item text-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  Is HayamiQR open source?
+                </button>
+              </h2>
+              <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body text-start">
+                  Yes! HanamiQR’s code is open source, allowing anyone to inspect it for transparency
+                  and trustworthiness. You can check the full code <a href="https://github.com/premkrrajbhar/HanamiQR"
+                    class="text-decoration-none text-dark" target="_blank">here</a>.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Footer section -->
+  <footer class="pt-4 pb-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <h5 class="text-dark">HanamiQR</h5>
+          <ol class="list-unstyled">
+            <li><a href="#home" class="text-dark text-decoration-none">Home</a></li>
+            <li><a href="#features" class="text-dark text-decoration-none">Features</a></li>
+            <li><a href="#quickguide" class="text-dark text-decoration-none">Quick Guide</a>
+            </li>
+            <li><a href="#generateqr" class="text-dark text-decoration-none">Generate QR</a></li>
+            <li><a href="#testimonials" class="text-dark text-decoration-none">Testimonial</a></li>
+            <li><a href="#about" class="text-dark text-decoration-none">About</a></li>
+            <li><a href="#faq" class="text-dark text-decoration-none">FAQ</a></li>
+          </ol>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-dark">HanamiQR</h5>
+          <p><a href="https://github.com/premkrrajbhar/HayamiQR" class="text-dark text-decoration-none"
+              target="_blank">View HanamiQR Open Source
+              Project <br><span class="customSize">(MIT Licensed)</span></a></p>
+        </div>
+      </div>
+      <div class="text-center text-dark pt-3 border-top">
+        <p class="small">© 2025 HanamiQR. All rights reserved by <a href="https://github.com/premkrrajbhar"
+            class="text-dark text-decoration-none" target="_blank">Prem Kumar</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS CDN JS link and init -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- QR Code JS CDN link -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Bootstrap CDN JS link -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+
+  <!-- Custom JS link -->
+  <script src="script/script.js"></script>
+
 </body>
 
 </html>
